@@ -16,13 +16,14 @@ LDD_GIT_SUBMODULES = YES
 LDD_MODULE_SUBDIRS = misc-modules scull
 
 define LDD_BUILD_CMDS 
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(LINUX_DIR) M=$(@D) modules
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/misc-modules KERNELDIR=$(LINUX_DIR)
 endef
 
 # TODO add your misc-modules and scull components to the installation steps below
-define LDD_INSTALL_TARGET_CMDS	
+define LDD_INSTALL_TARGET_CMDS	 
+	 $(INSTALL) -m 0755 $(@D)/misc-modules/* $(TARGET_DIR)/bin
 	 $(INSTALL) -m 0755 $(@D)/misc-modules/module_load $(TARGET_DIR)/bin
-	 $(INSTALL) -m 0755 $(@D)/misc-modules/module_unload $(TARGET_DIR)/bin
+	 $(INSTALL) -m 0755 $(@D)/misc-modules/module_unload $(TARGET_DIR)/bin 
 	 $(INSTALL) -m 0755 $(@D)/scull/scull_load $(TARGET_DIR)/bin
 	 $(INSTALL) -m 0755 $(@D)/scull/scull_unload $(TARGET_DIR)/bin
 endef
