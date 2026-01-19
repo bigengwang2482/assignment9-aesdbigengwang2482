@@ -4,15 +4,15 @@
 case "$1" in
 	start)
 		echo "Starting ldd drivers"
-		#scull_load
-		#module_load
-		#modprobe hello.ko
+		scull_load
+		module_load faulty
+		modprobe hello.ko
 		;;
 	stop)
 		echo "Stopping ldd drivers"
-		#scull_unload
-		#module_unload
-		#rmmode hello.ko
+		scull_unload
+		module_unload faulty
+		rmmod hello.ko
 		;;
 	*)
 		echo "Usage: $0 {start|stop}"

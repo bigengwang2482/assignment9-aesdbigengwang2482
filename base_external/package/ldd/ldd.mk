@@ -21,9 +21,10 @@ endef
 
 # TODO add your misc-modules and scull components to the installation steps below
 define LDD_INSTALL_TARGET_CMDS	 
-	#$(INSTALL) -m 0755 $(@D)/misc-modules/* $(TARGET_DIR)/bin
+	$(INSTALL) -m 0755 $(@D)/misc-modules/*.ko $(TARGET_DIR)/bin
 	#$(INSTALL) -m 0755 $(@D)/misc-modules/module_load $(TARGET_DIR)/bin
 	#$(INSTALL) -m 0755 $(@D)/misc-modules/module_unload $(TARGET_DIR)/bin 
+	$(INSTALL) -m 0755 $(@D)/scull/*.ko $(TARGET_DIR)/bin
 	#$(INSTALL) -m 0755 $(@D)/scull/scull_load $(TARGET_DIR)/bin
 	#$(INSTALL) -m 0755 $(@D)/scull/scull_unload $(TARGET_DIR)/bin
 endef
