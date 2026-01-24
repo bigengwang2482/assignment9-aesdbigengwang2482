@@ -13,11 +13,11 @@ AESD_ASSIGNMENTS_VERSION = '4b46f8f2c5738aabedb543ff62b7f79eaea50f8a'
 AESD_ASSIGNMENTS_SITE = 'git@github.com:bigengwang2482/assignment3-aesdbw-later.git'
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
+AESD_ASSIGNMENTS_MODULE_SUBDIRS = aesd-char-driver
 
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/finder-app all
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server all
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/aesd-char-driver
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server all	
 endef
 
 # TODO add your writer, finder and finder-test utilities/scripts to the installation steps below
